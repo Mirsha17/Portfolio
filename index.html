@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mirsha A — Portfolio</title>
+  <style>
+    :root{--bg:#f0f8ff;--card:#ffffff;--muted:#334155;--accent:#10b981;--accent2:#3b82f6;--accent3:#f59e0b;--glass:rgba(255,255,255,0.6)}
+    [data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--muted:#e2e8f0;--accent:#34d399;--accent2:#60a5fa;--accent3:#fbbf24;--glass:rgba(255,255,255,0.08)}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Poppins,system-ui,Arial,sans-serif}
+    body{background:linear-gradient(135deg,var(--accent2) 0%,var(--bg) 50%,var(--accent3) 100%);min-height:100vh;color:var(--muted)}
+    header{position:fixed;width:100%;top:0;left:0;background:var(--glass);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1);z-index:999}
+    .nav{max-width:1100px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{height:44px;width:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+    nav ul{list-style:none;display:flex;gap:20px}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;transition:color .3s}
+    nav a:hover{color:var(--accent)}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;transition:opacity .3s}
+    .btn:hover{opacity:.9}
+    .hero{max-width:1100px;margin:120px auto 40px;padding:20px;display:grid;grid-template-columns:1fr 350px;gap:20px;align-items:center}
+    .card{background:var(--card);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.1);padding:20px}
+    .intro h1{font-size:28px;color:var(--muted);margin-bottom:10px}
+    .intro p{font-size:15px;margin-bottom:15px}
+    .avatar{width:160px;height:160px;border-radius:50%;background:linear-gradient(180deg,var(--accent2),var(--accent3));display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:#fff}
+    .projects{max-width:1100px;margin:auto;padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .proj-card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 6px 15px rgba(0,0,0,0.08);transition:transform .3s,box-shadow .3s}
+    .proj-card:hover{transform:translateY(-6px);box-shadow:0 12px 20px rgba(0,0,0,0.12)}
+    .proj-card h3{margin-bottom:6px;color:var(--accent2)}
+    .skills{max-width:1100px;margin:auto;padding:20px}
+    .skills .tag{display:inline-block;margin:6px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:600}
+    .contact{max-width:1100px;margin:auto;padding:20px;display:grid;grid-template-columns:1fr 420px;gap:20px}
+    input,textarea{width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.1)}
+    footer{text-align:center;padding:20px;color:var(--muted)}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+    .modal .box{background:var(--card);padding:20px;border-radius:12px;max-width:700px;width:100%}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.contact{grid-template-columns:1fr}}
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="nav">
+      <div class="brand"><div class="logo">MA</div><strong>Mirsha A.</strong></div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="btn">🌙</button>
+    </div>
+  </header>
+
+  <section class="hero" id="about">
+    <div class="card intro">
+      <h1>Hello, I'm Mirsha 👋</h1>
+      <p>Final year CSE student passionate about building full‑stack web apps. My projects include PawPlates E‑commerce website, NEET AI Chatbot, and Todo App.</p>
+      <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="avatar">MA</div>
+      <p><strong>Frontend Developer • MERN Stack</strong></p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 style="text-align:center;color:var(--accent)">Projects</h2>
+    <div class="projects">
+      <div class="proj-card">
+        <h3>PawPlates — E‑commerce</h3>
+        <p>Pet‑food shopping site built with React, Bootstrap and Express connected to MongoDB.</p>
+        <button class="btn" onclick="openProject('pawplates')">View Details</button>
+      </div>
+      <div class="proj-card">
+        <h3>NEET AI Chatbot</h3>
+        <p>AI chatbot using Hugging Face model for NEET exam Q&A in Biology, Physics & Chemistry.</p>
+        <button class="btn" onclick="openProject('neetchat')">View Details</button>
+      </div>
+      <div class="proj-card">
+        <h3>Todo App</h3>
+        <p>Simple and responsive Todo app using local storage and vanilla JavaScript.</p>
+        <button class="btn" onclick="openProject('todo')">View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 style="text-align:center;color:var(--accent)">Skills</h2>
+    <div class="card" style="text-align:center">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">React</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">MongoDB</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 style="text-align:center;color:var(--accent)">Contact Me</h2>
+    <div class="contact">
+      <div class="card">
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <input id="name" placeholder="Your name" required />
+          <input id="email" type="email" placeholder="Your email" required />
+          <textarea id="message" placeholder="Your message" rows="5" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+          <div id="formStatus" style="margin-top:10px;font-size:13px"></div>
+        </form>
+      </div>
+      <div class="card">
+        <iframe src="https://www.google.com/maps?q=Madurai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;border-radius:12px"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="box">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="modalTitle"></h3>
+        <button class="btn" onclick="closeModal()">Close</button>
+      </div>
+      <div id="modalBody" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <footer>© 2025 Mirsha A — Built with ❤️ using HTML, CSS & JS</footer>
+
+  <script>
+    const themeToggle=document.getElementById('themeToggle');
+    themeToggle.onclick=()=>{const mode=document.body.getAttribute('data-theme');const next=mode==='light'?'dark':'light';document.body.setAttribute('data-theme',next);themeToggle.textContent=next==='dark'?'☀️':'🌙'};
+
+    const projects={
+      pawplates:{title:'PawPlates — E‑commerce',body:'A complete e‑commerce project with product listing, cart, booking, and contact form using React, Bootstrap, Node.js, Express, and MongoDB.'},
+      neetchat:{title:'NEET AI Chatbot',body:'An AI chatbot designed for NEET exam preparation using Generative AI transformer models to answer subject‑specific questions.'},
+      todo:{title:'Todo App',body:'A minimal todo list with add, edit, and delete functionalities using pure JavaScript and localStorage.'}
+    };
+
+    function openProject(id){document.getElementById('modalTitle').textContent=projects[id].title;document.getElementById('modalBody').textContent=projects[id].body;document.getElementById('modal').style.display='flex';}
+    function closeModal(){document.getElementById('modal').style.display='none'}
+
+    function submitForm(e){e.preventDefault();const name=document.getElementById('name').value;document.getElementById('formStatus').textContent=`Thanks ${name}! Your message has been sent.`;document.getElementById('contactForm').reset();}
+    document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+  </script>
+</body>
+</html>
