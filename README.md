@@ -26,7 +26,8 @@ To-Do App
 🗺️ Embedded Google Map – Displays my location
 
 🌙 Theme Toggle – Switch between dark and light modes
- Tech Stack
+ 
+Tech Stack
 
 Frontend: HTML5, CSS3, JavaScript
 
